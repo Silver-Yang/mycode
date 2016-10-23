@@ -1,3 +1,5 @@
+// iny.silve 
+// 2016.10.23
 #include <vector>
 #include <string>
 #include <iostream>
@@ -42,38 +44,6 @@ void kmp_matcher(const char* text, const char* pattern)
 	}
 }
 
-void kmp_matcher1(const char* pattern, int length,std::vector<int> pi)
-{
-	int suffix=-1;
-	pi[0]=-1;
-	for(int i=1;i<length;){
-		while(suffix>=0 && pattern[i]!=pattern[suffix])
-			suffix=pattern[suffix];
-		i++;suffix++;
-		pi[i]=suffix;
-	}
-	std::cout<<"string length:"<<length<<std::endl;
-	for(int i=0;i<length;i++)
-		std::cout<<"pi["<<i<<"]"<<" : "<<pi[i]<<std::endl;
-}
-//int kmp_matcher(std::vector<char> pattern,std::vector<int> pi)
-//{
-//	int length=pattern.size();
-//	pi[0]=-1;
-//	int j=-1;
-//	std::cout<<"string length:"<<length<<std::endl;
-//	for(int i=1;i<length;){
-//		while(j>=0 && pattern[i]!=pattern[j]){
-//			j=pi[j];
-//		}
-//		j++;
-//		i++;
-//		pi[i]=j;
-//	}
-//	for(int i=0;i<length;i++)
-//		std::cout<<"pi["<<i<<"]"<<" : "<<pi[i]<<std::endl;
-//	return 0;
-//}
 
 int main()
 {
@@ -83,10 +53,6 @@ int main()
 	char text[]="bacbababacabab";
 	char pat[]="ababaa";
 
-//	kmp_matcher(pattern,pi);
-//	kmp_matcher1(s,strlen(s),pi);
-//	compute_prefix_function(s,strlen(s),pi);
-//	compute_prefix_function(s1,strlen(s1),pi);
 	kmp_matcher(text,s1);
 
 	return 0;
